@@ -5,8 +5,13 @@ const cors = require("cors");
 const fs = require("fs");
 
 const app = express();
-app.use(cors());
-
+app.use(
+  cors({
+    origin: "*",
+    methods: ["GET", "POST"],
+    allowedHeaders: ["Content-Type"],
+  }),
+);
 // File upload setup
 const upload = multer({ dest: "uploads/" });
 
